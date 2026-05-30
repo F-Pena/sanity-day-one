@@ -3,7 +3,7 @@ import {structureTool} from 'sanity/structure'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemaTypes'
 import {structure} from './structure'
-import {defaultDocumentNode} from './structure/defaultDocumentNOde'
+import {defaultDocumentNode} from './structure/defaultDocumentNode'
 
 export default defineConfig({
   name: 'default',
@@ -17,4 +17,14 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
+
+  tools: (prev, {currentUser}) => {
+    const isAdmin = currentUser?.roles.some((role) => role.name === 'administrator');
+
+    if(isAdmin) {
+      return prev
+    }
+
+    return prev.filter((tool) => tool.name !== 'vision');
+  }
 })
