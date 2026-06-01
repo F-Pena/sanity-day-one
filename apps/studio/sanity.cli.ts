@@ -12,6 +12,9 @@ export default defineCliConfig({
      */
     autoUpdates: true,
   },
+  server: {
+    port: 3334
+  },
   typegen: {
     enabled: true,
     path: '../web/src/**/*.{ts,tsx,js,jsx}',

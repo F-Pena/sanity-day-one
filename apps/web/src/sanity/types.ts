@@ -234,25 +234,7 @@ export type Geopoint = {
   alt?: number;
 };
 
-export type AllSanitySchemaTypes =
-  | VenueReference
-  | ArtistReference
-  | SanityImageAssetReference
-  | Event
-  | SanityImageCrop
-  | SanityImageHotspot
-  | Artist
-  | Venue
-  | Slug
-  | MediaTag
-  | SanityImagePaletteSwatch
-  | SanityImagePalette
-  | SanityImageDimensions
-  | SanityImageMetadata
-  | SanityFileAsset
-  | SanityAssetSourceData
-  | SanityImageAsset
-  | Geopoint;
+export type AllSanitySchemaTypes = VenueReference | ArtistReference | SanityImageAssetReference | Event | SanityImageCrop | SanityImageHotspot | Artist | Venue | Slug | MediaTag | SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageMetadata | SanityFileAsset | SanityAssetSourceData | SanityImageAsset | Geopoint;
 
 // Source: ../web/src/app/events/[slug]/page.tsx
 // Variable: EVENT_QUERY
@@ -333,11 +315,3 @@ export type EVENTS_QUERY_RESULT = Array<{
   date: string | null;
 }>;
 
-// Query TypeMap
-import "@sanity/client";
-declare module "@sanity/client" {
-  interface SanityQueries {
-    '*[\n    _type == "event" &&\n    slug.current == $slug\n  ][0]{\n  ...,\n  "date": coalesce(date, now()),\n  "doorsOpen": coalesce(doorsOpen, 0),\n  headline->,\n  venue->\n}': EVENT_QUERY_RESULT;
-    '*[\n  _type == "event"\n  && defined(slug.current)\n  && date > now()\n]|order(date asc){_id, name, slug, date}': EVENTS_QUERY_RESULT;
-  }
-}
