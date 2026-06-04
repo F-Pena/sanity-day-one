@@ -18,10 +18,10 @@
   "dependencies": {
     "@sanity/icons": "^3.7.4",
     "@sanity/ui": "^3.2.0",
-    "@sanity/vision": "^5.28.0",
+    "@sanity/vision": "^5.30.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
-    "sanity": "^5.28.0",
+    "sanity": "^5.30.0",
     "sanity-plugin-documents-pane": "^3.0.2",
     "sanity-plugin-iframe-pane": "^5.0.13",
     "sanity-plugin-media": "^4.3.0",

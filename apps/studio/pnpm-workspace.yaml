@@ -1,2 +1,10 @@
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@sanity/diff@5.30.0'
+  - '@sanity/mutator@5.30.0'
+  - '@sanity/schema@5.30.0'
+  - '@sanity/types@5.30.0'
+  - '@sanity/util@5.30.0'
+  - '@sanity/vision@5.30.0'
+  - sanity@5.30.0
